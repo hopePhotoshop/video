@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Danil Palenov">
+  <title>Animore</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div class="video-player-container" role="region" aria-label="Видеоплеер">
+      <video id="videoPlayer" preload="metadata" aria-label="Видео"></video>
+      <div id="startIcon" class="start-icon" aria-label="Начать воспроизведение">
+        <i class="mdi mdi-play" style="font-size: 64px; color: white;"></i>
+      </div>
+      <div id="progressTooltip" class="tooltip"></div>
+
+      <div class="controls" role="group" aria-label="Панель управления">
+        <div class="controls-left">
+          <button id="playPause" aria-label="Воспроизведение/Пауза">
+            <i id="playPauseIcon" class="mdi mdi-play"></i>
+          </button>
+          <input type="range" id="progressBar" value="0" min="0" max="100" aria-label="Прогресс">
+        </div>
+        <div class="volume-control">
+          <i id="volumeIcon" class="mdi mdi-volume-high"></i>
+          <input type="range" id="volumeSlider" min="0" max="100" step="5" value="50" aria-label="Громкость">
+        </div>
+        <div class="time-display">
+          <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+        </div>
+        <div class="controls-right">
+          <button id="pipButton" aria-label="Картинка в картинке">
+            <i class="mdi mdi-picture-in-picture-bottom-right"></i>
+          </button>
+          <div class="settings-container">
+            <button id="settingsButton" aria-haspopup="true" aria-expanded="false" aria-label="Настройки">
+              <i class="mdi mdi-cog"></i>
+            </button>
+            <div id="settingsOptions" class="settings-options" style="display: none;">
+              <div id="mainMenu" class="menu">
+                <button id="qualityMenuButton" class="settings-item">Качество</button>
+                <button id="speedMenuButton" class="settings-item">Скорость</button>
+              </div>
+              <div id="qualityMenu" class="menu sub-menu" style="display: none;">
+                <button class="back-button">Назад</button>
+                <button data-quality="1080" class="settings-item">1080p</button>
+                <button data-quality="720" class="settings-item">720p</button>
+                <button data-quality="480" class="settings-item">480p</button>
+              </div>
+              <div id="speedMenu" class="menu sub-menu" style="display: none;">
+                <button class="back-button">Назад</button>
+                <button data-speed="0.5" class="settings-item">0.5x</button>
+                <button data-speed="1" class="settings-item">1x</button>
+                <button data-speed="1.5" class="settings-item">1.5x</button>
+                <button data-speed="2" class="settings-item">2x</button>
+              </div>
+            </div>
+          </div>
+          <button id="fullScreen" aria-label="Полноэкранный режим">
+            <i class="mdi mdi-fullscreen" style="font-size: 32px; height: 32px; width: 32px;"></i>
+          </button>
+        </div>
+      </div>
+      <div id="errorMessage" class="error-message" role="alert" aria-live="assertive"></div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="script.js"></script>
+</body>
+</html>
