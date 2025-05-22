@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Danil Palenov">
   <title>Animore</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/player-container.css">
+  <link rel="stylesheet" href="style/controls.css">
+  <link rel="stylesheet" href="style/progress-bar.css">
+  <link rel="stylesheet" href="style/volume.css">
+  <link rel="stylesheet" href="style/episode-nav.css">
+  <link rel="stylesheet" href="style/settings.css">
+  <link rel="stylesheet" href="style/adaptive.css">
+
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
 </head>
@@ -16,26 +25,46 @@
       <div id="startIcon" class="start-icon" aria-label="Начать воспроизведение">
         <i class="mdi mdi-play" style="font-size: 64px; color: white;"></i>
       </div>
-      <div id="progressTooltip" class="tooltip"></div>
+
+      <div class="progress-bar-wrapper">
+        <input type="range" id="progressBar" value="0" min="0" max="100" aria-label="Прогресс">
+        <div id="progressTooltip" class="tooltip"></div>
+      </div>
 
       <div class="controls" role="group" aria-label="Панель управления">
         <div class="controls-left">
+          <button id="prevEpisode" class="episode-nav" aria-label="Предыдущая серия">
+            <i class="mdi mdi-skip-previous"></i>
+          </button>
           <button id="playPause" aria-label="Воспроизведение/Пауза">
             <i id="playPauseIcon" class="mdi mdi-play"></i>
           </button>
-          <input type="range" id="progressBar" value="0" min="0" max="100" aria-label="Прогресс">
+          <button id="nextEpisode" class="episode-nav" aria-label="Следующая серия">
+            <i class="mdi mdi-skip-next"></i>
+          </button>
         </div>
+
         <div class="volume-control">
           <i id="volumeIcon" class="mdi mdi-volume-high"></i>
           <input type="range" id="volumeSlider" min="0" max="100" step="5" value="50" aria-label="Громкость">
         </div>
+
         <div class="time-display">
           <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
         </div>
+
         <div class="controls-right">
+          <div class="episode-dropdown">
+            <button id="episodeDropdownBtn" aria-label="Список серий">
+              <i class="mdi mdi-playlist-play"></i>
+            </button>
+            <div id="episodeDropdownList" class="episode-dropdown-list" style="display: none;"></div>
+          </div>
+
           <button id="pipButton" aria-label="Картинка в картинке">
             <i class="mdi mdi-picture-in-picture-bottom-right"></i>
           </button>
+
           <div class="settings-container">
             <button id="settingsButton" aria-haspopup="true" aria-expanded="false" aria-label="Настройки">
               <i class="mdi mdi-cog"></i>
@@ -60,15 +89,24 @@
               </div>
             </div>
           </div>
+
           <button id="fullScreen" aria-label="Полноэкранный режим">
             <i class="mdi mdi-fullscreen" style="font-size: 32px; height: 32px; width: 32px;"></i>
           </button>
         </div>
       </div>
+
       <div id="errorMessage" class="error-message" role="alert" aria-live="assertive"></div>
     </div>
   </main>
   <footer></footer>
-  <script src="script.js"></script>
+
+  <script src="components/playlist.js"></script>
+  <script src="components/player-vars.js"></script>
+  <script src="components/player-utils.js"></script>
+  <script src="components/player-source.js"></script>
+  <script src="components/player-progress.js"></script>
+  <script src="components/player-controls.js"></script>
+  <script src="components/player-events.js"></script>
 </body>
 </html>

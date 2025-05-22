@@ -1,0 +1,52 @@
+.episode-dropdown {
+  position: relative;
+  display: inline-block;
+}
+#episodeDropdownBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+#episodeDropdownBtn:hover,
+#episodeDropdownBtn:focus {
+  background: rgba(255,255,255,0.12);
+  color: #9400D3;
+}
+.episode-dropdown-list {
+  position: absolute;
+  right: 0;
+  bottom: 150%;
+  min-width: 130px;
+  background: #232323;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  z-index: 100;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #333;
+}
+.episode-dropdown-list button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 8px 20px;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 0;
+  outline: none;
+}
+.episode-dropdown-list button.active,
+.episode-dropdown-list button:hover {
+  background: #9400D3;
+  color: #fff;
+}

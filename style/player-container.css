@@ -1,0 +1,34 @@
+.video-player-container {
+  position: relative;
+  width: 800px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+video {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 800px) {
+  .video-player-container {
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  video {
+    width: 100vw;
+    height: auto;
+    display: block;
+    max-width: 100vw;
+    max-height: 56vw; /* 16:9 соотношение, если нужно */
+    object-fit: contain;
+    background: #000;
+  }
+}

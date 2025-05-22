@@ -1,0 +1,105 @@
+.controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease; 
+  opacity: 1; 
+  pointer-events: auto; 
+}
+.controls button:hover {
+  color: #9400D3; 
+}
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.controls-right {
+  margin-left: auto;
+}
+.controls button,
+.controls input[type="range"],
+.settings-options button,
+.sub-options button {
+  background: linear-gradient(135deg, #444, #555);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.controls button:hover,
+.controls input[type="range"]:hover,
+.settings-options button:hover,
+.sub-options button:hover {
+  background: linear-gradient(135deg, #555, #666);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+#fullScreen {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#playPause {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#playPause i {
+  font-size: 28px;
+  color: white;
+  transition: color 0.3s ease;
+}
+#playPause:hover i {
+  color: #9400D3;
+}
+#prevEpisode, #nextEpisode {
+  font-size: 20px;
+  padding: 8px 12px;
+}
+.time-display {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  .controls {
+    padding: 8px 4px;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .controls-left,
+  .controls-right {
+    width: auto;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .time-display {
+    font-size: 1em;
+  }
+  button,
+  input[type="range"] {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.1em;
+    touch-action: manipulation;
+  }
+}
